@@ -1,0 +1,40 @@
+<h1 style="text-align: center">Todo App</h1>
+<div class="todo-container" fxLayout="column" fxLayoutAlign="center center">
+<div class="form-container">
+    <mat-form-field class="input-field">
+      <input matInput placeholder="Write something here" [(ngModel)]="todoObject.text" name="text"  >
+    </mat-form-field>
+    <mat-form-field class="input-field">
+      <mat-label>Choose Color</mat-label>
+      <mat-select (selectionChange)="onChangeColor($event)">
+        <mat-option *ngFor="let color of colors" [value]="color.value">
+          {{color.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button (click)="onSave()">Save</button>
+</div>
+<div class="card-container">
+  <mat-card *ngFor="let todoObject of todoList; let idx=index" class="todo-card">
+    <div class={{todoObject.selectedColor}}></div>
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+      <h4 [ngClass]="{'done': todoObject.isDone}">{{todoObject.text}}</h4>
+      <button mat-icon-button *ngIf="!todoObject.isRated" (click)="markRated(idx)">
+        <i class="material-icons">
+          star_border
+          </i>
+      </button>
+      <button mat-icon-button *ngIf="todoObject.isRated" (click)="markUnRated(idx)">
+        <i class="material-icons">
+          star
+          </i>
+      </button>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start start" class="card-actions">
+      <p *ngIf="!todoObject.isDone" (click)="markDone(idx)">Done</p> 
+      <p *ngIf="todoObject.isDone" (click)="markNotDone(idx)">Mark not done</p>
+      <p (click)="delete(idx)">Delete</p>
+    </div>
+  </mat-card>
+</div>
+</div>

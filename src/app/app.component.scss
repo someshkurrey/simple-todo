@@ -1,0 +1,58 @@
+.input-field {
+    padding: 5px;
+}
+
+.card-container, .form-container {
+    width: 444px;
+}
+
+.todo-card {
+    margin-bottom: 1rem;
+}
+
+.colorBox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.violet {
+    background-color: violet;
+    @extend .colorBox;
+}
+
+.indigo {
+    background-color: indigo;
+    @extend .colorBox;
+}
+
+.blue {
+    background-color: blue;
+    @extend .colorBox;
+}
+
+.green {
+    background-color: green;
+    @extend .colorBox;
+}
+
+.yellow {
+    background-color: yellow;
+    @extend .colorBox;
+}
+
+.red {
+    background-color: red;
+    @extend .colorBox;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.card-actions p {
+    margin: 0;
+    padding-right: 1rem;
+    color: blue;
+    cursor: pointer;
+}
